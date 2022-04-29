@@ -1,13 +1,13 @@
 let currentPlayer = "X";
 let winner = "";
 let moves = 9;
-let gameActive = true;
 const playGround = ["", "", "", "", "", "", "", "", ""];
 
 function gamePlay(id) {
   if (document.getElementById(id).innerHTML === "") {
     document.getElementById(id).innerHTML = currentPlayer;
     playGround[id] = currentPlayer;
+    --moves;
   }
   checkWinner();
   playerTurn();
@@ -29,7 +29,6 @@ function checkWinner() {
   ) {
     winner = currentPlayer;
     displayWinner();
-    gameActive = false;
   } else if (
     playGround[3] === playGround[4] &&
     playGround[4] === playGround[5] &&
@@ -37,7 +36,6 @@ function checkWinner() {
   ) {
     winner = currentPlayer;
     displayWinner();
-    gameActive = false;
   } else if (
     playGround[6] === playGround[7] &&
     playGround[7] === playGround[8] &&
@@ -45,7 +43,6 @@ function checkWinner() {
   ) {
     winner = currentPlayer;
     displayWinner();
-    gameActive = false;
   } else if (
     playGround[0] === playGround[3] &&
     playGround[3] === playGround[6] &&
@@ -53,7 +50,6 @@ function checkWinner() {
   ) {
     winner = currentPlayer;
     displayWinner();
-    gameActive = false;
   } else if (
     playGround[1] === playGround[4] &&
     playGround[4] === playGround[7] &&
@@ -61,7 +57,6 @@ function checkWinner() {
   ) {
     winner = currentPlayer;
     displayWinner();
-    gameActive = false;
   } else if (
     playGround[2] === playGround[5] &&
     playGround[5] === playGround[8] &&
@@ -69,7 +64,6 @@ function checkWinner() {
   ) {
     winner = currentPlayer;
     displayWinner();
-    gameActive = false;
   } else if (
     playGround[0] === playGround[4] &&
     playGround[4] === playGround[8] &&
@@ -77,7 +71,6 @@ function checkWinner() {
   ) {
     winner = currentPlayer;
     displayWinner();
-    gameActive = false;
   } else if (
     playGround[2] === playGround[4] &&
     playGround[4] === playGround[6] &&
@@ -85,15 +78,13 @@ function checkWinner() {
   ) {
     winner = currentPlayer;
     displayWinner();
-    gameActive = false;
-  } else if (moves < 2) {
+  } else if (moves < 1) {
     document.getElementById("winnerMessage").innerHTML = "It's a DRAW!";
-    gameActive = false;
-  } else {
-    --moves;
+    document.getElementById("gameBoard").style.pointerEvents = "none";
   }
 }
 
 function displayWinner() {
   document.getElementById("winnerMessage").innerHTML = winner + "' s the WINNER!";
+  document.getElementById("gameBoard").style.pointerEvents = "none";
 }
