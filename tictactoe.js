@@ -23,58 +23,30 @@ function playerTurn() {
 
 function checkWinner() {
   if (
-    playGround[0] === playGround[1] &&
+    (playGround[0] === playGround[1] &&
     playGround[1] === playGround[2] &&
-    playGround[2] !== ""
-  ) {
-    winner = currentPlayer;
-    displayWinner();
-  } else if (
-    playGround[3] === playGround[4] &&
+    playGround[2] !== "") ||
+    (playGround[3] === playGround[4] &&
     playGround[4] === playGround[5] &&
-    playGround[5] !== ""
-  ) {
-    winner = currentPlayer;
-    displayWinner();
-  } else if (
-    playGround[6] === playGround[7] &&
+    playGround[5] !== "") ||
+    (playGround[6] === playGround[7] &&
     playGround[7] === playGround[8] &&
-    playGround[8] !== ""
-  ) {
-    winner = currentPlayer;
-    displayWinner();
-  } else if (
-    playGround[0] === playGround[3] &&
+    playGround[8] !== "") ||
+    (playGround[0] === playGround[3] &&
     playGround[3] === playGround[6] &&
-    playGround[6] !== ""
-  ) {
-    winner = currentPlayer;
-    displayWinner();
-  } else if (
-    playGround[1] === playGround[4] &&
+    playGround[6] !== "") ||
+    (playGround[1] === playGround[4] &&
     playGround[4] === playGround[7] &&
-    playGround[7] !== ""
-  ) {
-    winner = currentPlayer;
-    displayWinner();
-  } else if (
-    playGround[2] === playGround[5] &&
+    playGround[7] !== "") ||
+    (playGround[2] === playGround[5] &&
     playGround[5] === playGround[8] &&
-    playGround[8] !== ""
-  ) {
-    winner = currentPlayer;
-    displayWinner();
-  } else if (
-    playGround[0] === playGround[4] &&
+    playGround[8] !== "") ||
+    (playGround[0] === playGround[4] &&
     playGround[4] === playGround[8] &&
-    playGround[8] !== ""
-  ) {
-    winner = currentPlayer;
-    displayWinner();
-  } else if (
-    playGround[2] === playGround[4] &&
+    playGround[8] !== "") ||
+    (playGround[2] === playGround[4] &&
     playGround[4] === playGround[6] &&
-    playGround[6] !== ""
+    playGround[6] !== "")
   ) {
     winner = currentPlayer;
     displayWinner();
